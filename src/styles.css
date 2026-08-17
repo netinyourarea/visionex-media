@@ -1,0 +1,244 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Visionex Media Services — design system.
+ * Light, editorial, engineering-grade. All colors in oklch.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-violet: var(--violet);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.25rem;
+
+  --background: oklch(0.9911 0.0020 258.32);
+  --foreground: oklch(0.1789 0.0148 258.44);
+  --surface: oklch(0.9720 0.0040 258.32);
+  --surface-2: oklch(0.9450 0.0070 258.32);
+  --card: oklch(0.9911 0.0020 258.32);
+  --card-foreground: oklch(0.1789 0.0148 258.44);
+  --popover: oklch(0.9911 0.0020 258.32);
+  --popover-foreground: oklch(0.1789 0.0148 258.44);
+
+  --primary: oklch(0.6100 0.1450 222.66);
+  --primary-foreground: oklch(0.9911 0.0020 258.32);
+  --secondary: oklch(0.9450 0.0070 258.32);
+  --secondary-foreground: oklch(0.1789 0.0148 258.44);
+  --muted: oklch(0.9450 0.0070 258.32);
+  --muted-foreground: oklch(0.2500 0.0160 258.32);
+  --accent: oklch(0.6100 0.1450 222.66);
+  --accent-foreground: oklch(0.9911 0.0020 258.32);
+  --violet: oklch(0.5400 0.1900 283.39);
+
+  --destructive: oklch(0.55 0.21 25);
+  --destructive-foreground: oklch(0.9911 0.0020 258.32);
+
+  --border: oklch(0.8900 0.0090 258.32);
+  --border-strong: oklch(0.8000 0.0150 258.32);
+  --input: oklch(0.8900 0.0090 258.32);
+  --ring: oklch(0.6100 0.1450 222.66);
+
+  --chart-1: oklch(0.6100 0.1450 222.66);
+  --chart-2: oklch(0.5400 0.1900 283.39);
+  --chart-3: oklch(0.4400 0.0180 258.32);
+  --chart-4: oklch(0.7 0.1 222);
+  --chart-5: oklch(0.85 0.03 262);
+
+  --sidebar: oklch(0.9720 0.0040 258.32);
+  --sidebar-foreground: oklch(0.1789 0.0148 258.44);
+  --sidebar-primary: oklch(0.6100 0.1450 222.66);
+  --sidebar-primary-foreground: oklch(0.9911 0.0020 258.32);
+  --sidebar-accent: oklch(0.9450 0.0070 258.32);
+  --sidebar-accent-foreground: oklch(0.1789 0.0148 258.44);
+  --sidebar-border: oklch(0.8900 0.0090 258.32);
+  --sidebar-ring: oklch(0.6100 0.1450 222.66);
+}
+
+/* The site is light-only; .dark simply mirrors :root. */
+.dark {
+  color-scheme: light;
+}
+
+/* Scoped dark override — used for the homepage hero, which stays on the
+   cinematic dark identity while the rest of the site is light. */
+.theme-dark {
+  color-scheme: dark;
+  /* `color` only inherits as an already-resolved value from <body>, so
+     descendants that don't set an explicit text-color utility would keep
+     rendering with the light theme's dark foreground. Re-set it here so the
+     whole subtree recomputes against this scope's --foreground. */
+  color: var(--color-foreground);
+  --background: oklch(0.1437 0.0123 258.44);
+  --foreground: oklch(0.9755 0.0045 258.32);
+  --surface: oklch(0.1768 0.0159 261.52);
+  --surface-2: oklch(0.2041 0.0239 262.26);
+  --card: oklch(0.1768 0.0159 261.52);
+  --card-foreground: oklch(0.9755 0.0045 258.32);
+  --popover: oklch(0.2041 0.0239 262.26);
+  --popover-foreground: oklch(0.9755 0.0045 258.32);
+  --primary: oklch(0.8209 0.1253 222.66);
+  --primary-foreground: oklch(0.1437 0.0123 258.44);
+  --muted-foreground: oklch(0.7184 0.0264 257.66);
+  --border: oklch(0.2784 0.0273 257.53);
+  --border-strong: oklch(0.34 0.03 257);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv01";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-primary) 35%, transparent);
+    color: var(--color-foreground);
+  }
+}
+
+@utility container-x {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 88rem;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) {
+    padding-inline: 2.5rem;
+  }
+  @media (min-width: 1280px) {
+    padding-inline: 4rem;
+  }
+}
+
+/* Thin technical label used above section headings */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-foreground);
+  font-weight: 600;
+}
+
+/* Fine engineering grid backdrop */
+@utility grid-lines {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-border) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-border) 55%, transparent) 1px, transparent 1px);
+  background-size: 88px 88px;
+}
+
+@utility hairline-t {
+  border-top: 1px solid var(--color-border);
+}
+
+@utility text-gradient-accent {
+  background: linear-gradient(
+    100deg,
+    var(--color-foreground) 30%,
+    color-mix(in oklab, var(--color-primary) 90%, white) 75%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-accent-light {
+  background: linear-gradient(
+    100deg,
+    white 30%,
+    color-mix(in oklab, var(--color-primary) 90%, white) 75%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility glow-accent {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--color-primary) 25%, transparent),
+    0 20px 60px -20px color-mix(in oklab, var(--color-primary) 45%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
