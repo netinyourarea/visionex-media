@@ -60,13 +60,22 @@ function SolutionsPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  to="/contact"
-                  className="mt-8 inline-flex items-center gap-2 font-display text-sm font-semibold text-primary opacity-0 transition-opacity group-hover:opacity-100"
-                >
-                  Discuss this track
-                  <ArrowUpRight className="size-4" />
-                </Link>
+                <div className="mt-8 flex items-center justify-between opacity-90 group-hover:opacity-100 transition-opacity">
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-1.5 font-display text-sm font-semibold text-muted-foreground hover:text-foreground"
+                  >
+                    Discuss track
+                    <ArrowUpRight className="size-4" />
+                  </Link>
+                  <Link
+                    to="/checkout"
+                    search={{ service: sol.services.join(",") }}
+                    className="inline-flex items-center gap-1.5 rounded-sm border border-primary/40 bg-primary/10 px-3.5 py-1.5 font-mono text-xs font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-all"
+                  >
+                    Book Track Services →
+                  </Link>
+                </div>
               </div>
             </Reveal>
           ))}

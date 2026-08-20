@@ -96,12 +96,21 @@ function ServiceDetail() {
               ))}
             </ul>
           </Reveal>
-          <Reveal delay={0.16}>
-            <p className="eyebrow mb-5">Stack</p>
-            <div className="flex flex-wrap gap-2">
-              {service.stack.map((t) => (
-                <TechTag key={t}>{t}</TechTag>
-              ))}
+          <Reveal delay={0.22}>
+            <div className="rounded-lg border border-primary/30 bg-primary/5 p-6 backdrop-blur-sm">
+              <h4 className="font-display text-base font-bold text-foreground">
+                Ready to engineer this service?
+              </h4>
+              <p className="mt-2 text-xs text-muted-foreground">
+                Book this engagement track directly or customize your deliverables in checkout.
+              </p>
+              <Link
+                to="/checkout"
+                search={{ service: service.slug }}
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-sm bg-primary px-5 py-3 font-display text-sm font-bold text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                Book {service.title} →
+              </Link>
             </div>
           </Reveal>
         </aside>

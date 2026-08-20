@@ -10,6 +10,7 @@ import {
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { CheckoutProvider } from "@/context/CheckoutContext";
 
 function NotFoundComponent() {
   return (
@@ -93,12 +94,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <HeadContent />
-      <Navbar />
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
-      <Footer />
-      <Toaster />
+      <CheckoutProvider>
+        <HeadContent />
+        <Navbar />
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+        <Footer />
+        <Toaster />
+      </CheckoutProvider>
     </QueryClientProvider>
   );
 }

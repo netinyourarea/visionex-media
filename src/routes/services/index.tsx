@@ -49,35 +49,42 @@ function ServicesPage() {
         <ol className="border-t border-border">
           {services.map((s, i) => (
             <Reveal key={s.slug} as="li" delay={Math.min(i * 0.03, 0.2)}>
-              <Link
-                to="/services/$slug"
-                params={{ slug: s.slug }}
-                className="group grid gap-4 border-b border-border py-10 transition-colors hover:border-primary/40 md:grid-cols-12 md:items-start md:gap-8"
-              >
+              <div className="group grid gap-4 border-b border-border py-10 transition-colors hover:border-primary/40 md:grid-cols-12 md:items-start md:gap-8">
                 <div className="md:col-span-1">
                   <span className="font-mono text-[11px] tracking-widest text-muted-foreground">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
                 <div className="md:col-span-5">
-                  <h2 className="font-display text-2xl font-bold tracking-tight transition-colors group-hover:text-primary md:text-3xl">
-                    {s.title}
-                  </h2>
+                  <Link to="/services/$slug" params={{ slug: s.slug }}>
+                    <h2 className="font-display text-2xl font-bold tracking-tight transition-colors group-hover:text-primary md:text-3xl">
+                      {s.title}
+                    </h2>
+                  </Link>
                   <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
                     {s.short}
                   </p>
                 </div>
-                <div className="md:col-span-5">
+                <div className="md:col-span-4">
                   <div className="flex flex-wrap gap-2">
                     {s.stack.map((t) => (
                       <TechTag key={t}>{t}</TechTag>
                     ))}
                   </div>
                 </div>
-                <div className="md:col-span-1 md:text-right">
-                  <ArrowUpRight className="size-5 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-primary" />
+                <div className="flex items-center gap-3 md:col-span-2 md:justify-end">
+                  <Link
+                    to="/checkout"
+                    search={{ service: s.slug }}
+                    className="inline-flex items-center gap-1 rounded-sm border border-primary/40 bg-primary/10 px-3 py-1.5 font-mono text-xs font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-all"
+                  >
+                    Book Service →
+                  </Link>
+                  <Link to="/services/$slug" params={{ slug: s.slug }}>
+                    <ArrowUpRight className="size-5 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-primary shrink-0" />
+                  </Link>
                 </div>
-              </Link>
+              </div>
             </Reveal>
           ))}
         </ol>
