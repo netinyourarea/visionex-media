@@ -39,7 +39,7 @@ export function ServicesInteractive() {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <Reveal>
             <Eyebrow>Capabilities</Eyebrow>
-            <h2 className="mt-6 max-w-2xl text-[clamp(2rem,4.5vw,3.75rem)] font-extrabold leading-[1]">
+            <h2 className="mt-6 max-w-2xl text-[clamp(2rem,4.5vw,3.75rem)] font-extrabold leading-[1.1]">
               Ten disciplines, one engineering standard.
             </h2>
           </Reveal>

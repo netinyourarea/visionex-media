@@ -95,7 +95,7 @@ function ServicesPage() {
         <div className="container-x relative">
           <Reveal>
             <Eyebrow className="text-white">How we engage</Eyebrow>
-            <h2 className="mt-6 max-w-2xl text-[clamp(1.75rem,4vw,3rem)] font-extrabold leading-[1.05] text-white">
+            <h2 className="mt-6 max-w-2xl text-[clamp(1.75rem,4vw,3rem)] font-extrabold leading-[1.1] text-white">
               Three shapes an engagement can take.
             </h2>
           </Reveal>

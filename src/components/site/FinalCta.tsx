@@ -22,7 +22,7 @@ export function FinalCta({
           <Eyebrow>{eyebrow}</Eyebrow>
         </Reveal>
         <Reveal delay={0.08}>
-          <h2 className="mt-8 max-w-4xl text-[clamp(2.5rem,7vw,5.5rem)] font-extrabold leading-[0.95]">
+          <h2 className="mt-8 max-w-4xl text-[clamp(2.5rem,7vw,5.5rem)] font-extrabold leading-[1.1]">
             {heading}
           </h2>
         </Reveal>

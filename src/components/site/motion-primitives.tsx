@@ -55,7 +55,10 @@ export function WordReveal({
   return (
     <span className={cn("inline-block", className)}>
       {words.map((word, i) => (
-        <span key={`${word}-${i}`} className="inline-block overflow-hidden align-bottom">
+        <span
+          key={`${word}-${i}`}
+          className="inline-block overflow-hidden pb-[0.2em] align-bottom"
+        >
           <motion.span
             className={cn(
               "inline-block",

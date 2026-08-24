@@ -43,7 +43,7 @@ function AboutPage() {
       <section className="hairline-t container-x py-24 md:py-32">
         <Reveal>
           <Eyebrow>Our delivery model</Eyebrow>
-          <h2 className="mt-6 max-w-2xl text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold leading-[1]">
+          <h2 className="mt-6 max-w-2xl text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold leading-[1.1]">
             <WordReveal text="Five stages, applied consistently." delay={0.05} />
           </h2>
         </Reveal>
@@ -90,7 +90,7 @@ function AboutPage() {
         <div className="container-x relative">
           <Reveal>
             <Eyebrow className="text-white">By the numbers</Eyebrow>
-            <h2 className="mt-6 max-w-2xl text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold leading-[1] text-white">
+            <h2 className="mt-6 max-w-2xl text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold leading-[1.1] text-white">
               Engineering, measured.
             </h2>
           </Reveal>

@@ -271,7 +271,7 @@ function ContactPage() {
 
       <section className="hairline-t container-x py-24 md:py-32">
         <Eyebrow>What happens next</Eyebrow>
-        <h2 className="mt-6 max-w-xl text-[clamp(1.75rem,4vw,3rem)] font-extrabold leading-[1.05]">
+        <h2 className="mt-6 max-w-xl text-[clamp(1.75rem,4vw,3rem)] font-extrabold leading-[1.1]">
           From inquiry to first conversation.
         </h2>
         <div className="mt-14 grid gap-x-8 gap-y-12 border-t border-border pt-12 sm:grid-cols-3">

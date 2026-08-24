@@ -23,7 +23,7 @@ export function PageHeader({
       />
       <div className="container-x relative">
         <Eyebrow>{eyebrow}</Eyebrow>
-        <h1 className="mt-7 max-w-5xl text-[clamp(2.75rem,7vw,6rem)] font-extrabold leading-[0.94]">
+        <h1 className="mt-7 max-w-5xl text-[clamp(2.75rem,7vw,6rem)] font-extrabold leading-[1.1]">
           <WordReveal text={title} delay={0.05} />
         </h1>
         {lead ? (

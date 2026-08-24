@@ -79,7 +79,7 @@ function WorkPage() {
         <div className="pointer-events-none absolute inset-0 grid-lines opacity-20" aria-hidden />
         <div className="container-x relative">
           <Eyebrow className="text-white">Spread of work</Eyebrow>
-          <h2 className="mt-6 max-w-2xl text-[clamp(1.75rem,4vw,3rem)] font-extrabold leading-[1.05] text-white">
+          <h2 className="mt-6 max-w-2xl text-[clamp(1.75rem,4vw,3rem)] font-extrabold leading-[1.1] text-white">
             Across disciplines, the same standard.
           </h2>
           <ol className="mt-14 grid gap-x-10 gap-y-10 border-t border-border pt-10 sm:grid-cols-2 lg:grid-cols-4">

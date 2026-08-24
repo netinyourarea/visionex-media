@@ -74,7 +74,7 @@ function Ecosystem() {
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <Reveal className="lg:col-span-6">
             <Eyebrow>Technology Ecosystem</Eyebrow>
-            <h2 className="mt-6 text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold leading-[1]">
+            <h2 className="mt-6 text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold leading-[1.1]">
               One coherent stack, end to end.
             </h2>
           </Reveal>
@@ -161,7 +161,7 @@ function Industries() {
       <div className="container-x relative">
         <Reveal>
           <Eyebrow>Industries</Eyebrow>
-          <h2 className="mt-6 max-w-2xl text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold leading-[1]">
+          <h2 className="mt-6 max-w-2xl text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold leading-[1.1]">
             Domains where the constraints are real.
           </h2>
         </Reveal>
@@ -197,7 +197,7 @@ function FeaturedWork() {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <Reveal>
             <Eyebrow>Featured Work</Eyebrow>
-            <h2 className="mt-6 max-w-2xl text-[clamp(2rem,4.5vw,3.75rem)] font-extrabold leading-[1]">
+            <h2 className="mt-6 max-w-2xl text-[clamp(2rem,4.5vw,3.75rem)] font-extrabold leading-[1.1]">
               Engagement shapes, not slide decks.
             </h2>
           </Reveal>
@@ -247,7 +247,7 @@ function WhyVisionex() {
       <div className="container-x">
         <Reveal>
           <Eyebrow>Why Visionex</Eyebrow>
-          <h2 className="mt-6 max-w-3xl text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold leading-[1]">
+          <h2 className="mt-6 max-w-3xl text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold leading-[1.1]">
             <WordReveal text="Judgement, ownership and engineering discipline." delay={0.05} />
           </h2>
         </Reveal>
