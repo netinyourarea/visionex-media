@@ -17,7 +17,7 @@ export function Hero() {
   const fade = useTransform(scrollYProgress, [0, 0.85], [1, reduce ? 1 : 0]);
 
   return (
-    <div ref={ref} className="theme-dark relative h-[100svh] min-h-[680px] w-full overflow-hidden bg-background pt-20 text-foreground">
+    <div ref={ref} className="theme-dark relative h-[100svh] min-h-[680px] w-full overflow-hidden bg-background pt-10 text-foreground">
       <motion.div className="absolute inset-0" style={{ y: imageY, scale: imageScale }}>
         <img
           src={heroImage}
@@ -43,7 +43,7 @@ export function Hero() {
         style={{ y: contentY, opacity: fade }}
         className="container-x relative flex h-full flex-col justify-start pt-28 pb-16 sm:pt-32 md:justify-start md:pt-0 md:pb-24"
       >
-        <h1 className="mt-7 max-w-[16ch] text-[clamp(3.25rem,8vw,6.5rem)] font-extrabold leading-[1.3] text-white">
+        <h1 className="mt-7 max-w-[16ch] text-[clamp(3.5rem,9vw,7.5rem)] font-extrabold leading-[1.3] text-white">
           <WordReveal
             text="Engineering the Digital Future."
             delay={0.15}
@@ -52,7 +52,7 @@ export function Hero() {
           />
         </h1>
 
-        <div className="mt-8 flex flex-col gap-10 border-t border-border/70 pt-8 lg:flex-row lg:items-end lg:justify-between">
+        <div className="mt-1 flex flex-col gap-10 border-t border-border/70 pt-4 lg:flex-row lg:items-end lg:justify-between">
           <motion.p
             initial={reduce ? { opacity: 1 } : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
