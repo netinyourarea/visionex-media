@@ -16,6 +16,11 @@ export const company = {
   lastUpdated: "2026-08-17",
 };
 
+export const social = {
+  facebook: "https://www.facebook.com/people/Visionex-Media/61593857698401/",
+  instagram: "https://www.instagram.com/_visionex_media/",
+};
+
 export type Service = {
   slug: string;
   title: string;

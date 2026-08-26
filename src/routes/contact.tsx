@@ -3,10 +3,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Facebook, Instagram } from "lucide-react";
 import { toast } from "sonner";
 
-import { budgetRanges, company, projectTypes } from "@/data/site";
+import { budgetRanges, company, projectTypes, social } from "@/data/site";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Eyebrow } from "@/components/site/primitives";
 import { Reveal } from "@/components/site/motion-primitives";
@@ -265,6 +265,26 @@ function ContactPage() {
             </dl>
           </Reveal>
           <Reveal delay={0.16}>
+            <div className="mt-6 flex items-center gap-4">
+              <a
+                href={social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visionex on Facebook"
+                className="text-muted-foreground transition-colors hover:text-primary"
+              >
+                <Facebook className="h-5 w-5" strokeWidth={1.5} />
+              </a>
+              <a
+                href={social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visionex on Instagram"
+                className="text-muted-foreground transition-colors hover:text-primary"
+              >
+                <Instagram className="h-5 w-5" strokeWidth={1.5} />
+              </a>
+            </div>
           </Reveal>
         </aside>
       </div>

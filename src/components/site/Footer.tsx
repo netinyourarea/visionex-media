@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
+import { Facebook, Instagram } from "lucide-react";
 
 import logoBlack from "@/assets/visionex logo black.png";
-import { company, services } from "@/data/site";
+import { company, services, social } from "@/data/site";
 
 const nav = [
   { label: "Services", to: "/services" as const },
@@ -75,6 +76,26 @@ export function Footer() {
               <dd>{company.address}</dd>
             </div>
           </dl>
+          <div className="mt-6 flex items-center gap-4">
+            <a
+              href={social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visionex on Facebook"
+              className="text-muted-foreground transition-colors hover:text-primary"
+            >
+              <Facebook className="h-5 w-5" strokeWidth={1.5} />
+            </a>
+            <a
+              href={social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visionex on Instagram"
+              className="text-muted-foreground transition-colors hover:text-primary"
+            >
+              <Instagram className="h-5 w-5" strokeWidth={1.5} />
+            </a>
+          </div>
         </div>
 
         <div className="lg:col-span-3">
