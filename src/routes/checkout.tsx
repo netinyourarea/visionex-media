@@ -18,7 +18,7 @@ export const Route = createFileRoute("/checkout")({
   },
   head: () => ({
     meta: [
-      { title: "Checkout & Booking — Visionex Media Services" },
+      { title: "Checkout & Booking — Visionex Media Private Limited" },
       {
         name: "description",
         content:

@@ -14,7 +14,7 @@ import {
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "FAQ — Visionex Media Services" },
+      { title: "FAQ — Visionex Media Private Limited" },
       {
         name: "description",
         content:

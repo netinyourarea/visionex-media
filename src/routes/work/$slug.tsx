@@ -27,7 +27,7 @@ export const Route = createFileRoute("/work/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.title} — Visionex Media Services` },
+          { title: `${loaderData.title} — Visionex Media Private Limited` },
           { name: "description", content: loaderData.summary },
         ]
       : [],

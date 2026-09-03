@@ -25,7 +25,7 @@ const engagementModels = [
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
-      { title: "Services — Visionex Media Services" },
+      { title: "Services — Visionex Media Private Limited" },
       {
         name: "description",
         content:

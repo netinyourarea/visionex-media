@@ -10,7 +10,7 @@ import { Reveal } from "@/components/site/motion-primitives";
 export const Route = createFileRoute("/technology")({
   head: () => ({
     meta: [
-      { title: "Technology — Visionex Media Services" },
+      { title: "Technology — Visionex Media Private Limited" },
       {
         name: "description",
         content:

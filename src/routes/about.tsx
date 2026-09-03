@@ -9,11 +9,11 @@ import { Reveal, WordReveal } from "@/components/site/motion-primitives";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Visionex Media Services" },
+      { title: "About — Visionex Media Private Limited" },
       {
         name: "description",
         content:
-          "Visionex Media Services is an IT and technology solutions company — our philosophy, delivery model and standards.",
+          "Visionex Media Private Limited is an IT and technology solutions company — our philosophy, delivery model and standards.",
       },
     ],
   }),

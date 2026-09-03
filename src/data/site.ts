@@ -1,12 +1,12 @@
 /**
- * Central, easily editable content for Visionex Media Services.
+ * Central, easily editable content for Visionex Media Private Limited.
  */
 
 export const company = {
-  name: "Visionex Media Services",
+  name: "Visionex Media Private Limited",
   short: "Visionex",
   fullLegal: "Visionex Media Private Limited",
-  description: "Visionex Media Services is an IT and technology solutions company engineering software, cloud and security systems for organisations that depend on them.",
+  description: "Visionex Media Private Limited is an IT and technology solutions company engineering software, cloud and security systems for organisations that depend on them.",
   tagline: "Engineering the Digital Future.",
   email: "ind.visionmedia@gmail.com",
   phone: "+91 7304854196",

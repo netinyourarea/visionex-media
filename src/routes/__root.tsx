@@ -77,8 +77,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Visionex designs, builds and operates the software, cloud and security systems organisations run on.",
       },
-      { name: "author", content: "Visionex Media Services" },
-      { property: "og:title", content: "Visionex Media Services" },
+      { name: "author", content: "Visionex Media Private Limited" },
+      { property: "og:title", content: "Visionex Media Private Limited" },
       { property: "og:description", content: "Engineering the Digital Future." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

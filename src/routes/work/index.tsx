@@ -27,7 +27,7 @@ const caseImages = {
 export const Route = createFileRoute("/work/")({
   head: () => ({
     meta: [
-      { title: "Work — Visionex Media Services" },
+      { title: "Work — Visionex Media Private Limited" },
       {
         name: "description",
         content:

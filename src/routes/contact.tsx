@@ -32,7 +32,7 @@ import {
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Visionex Media Services" },
+      { title: "Contact — Visionex Media Private Limited" },
       {
         name: "description",
         content:
