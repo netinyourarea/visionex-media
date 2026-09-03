@@ -65,6 +65,10 @@ export function Footer() {
           </p>
           <dl className="mt-8 space-y-1.5 text-sm leading-relaxed text-muted-foreground">
             <div className="flex flex-col">
+              <dt className="text-foreground/60">Company</dt>
+              <dd>{company.name}</dd>
+            </div>
+            <div className="flex flex-col">
               <dt className="text-foreground/60">Email</dt>
               <dd>{company.email}</dd>
             </div>
