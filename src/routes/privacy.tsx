@@ -5,10 +5,10 @@ import { LegalLayout } from "@/components/site/LegalLayout";
 export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy — Visionex Media Pvt Ltd" },
+      { title: "Privacy Policy — Visionex Media Private Limited" },
       {
         name: "description",
-        content: "How Visionex Media Pvt Ltd collects, uses and protects personal data.",
+        content: "How Visionex Media Private Limited collects, uses and protects personal data.",
       },
     ],
   }),
@@ -20,7 +20,7 @@ function PrivacyPage() {
     <LegalLayout
       eyebrow="Legal"
       title="Privacy Policy"
-      intro="This policy explains what personal data Visionex Media Pvt Ltd collects, why, and how it is handled."
+      intro="This policy explains what personal data Visionex Media Private Limited collects, why, and how it is handled."
       sections={[
         {
           id: "information-we-collect",
@@ -56,13 +56,13 @@ function PrivacyPage() {
           id: "your-rights",
           heading: "Your rights",
           body: [
-            "Under applicable data protection laws, you have the right to access, correct, or delete your personal data. You may also have the right to data portability. To exercise these rights, please contact us at info@VisionexMedia.com.",
+            "Under applicable data protection laws, you have the right to access, correct, or delete your personal data. You may also have the right to data portability. To exercise these rights, please contact us at ind.visionmedia@gmail.com.",
           ],
         },
         {
           id: "contact",
           heading: "Contact",
-          body: ["Questions about this policy can be directed to info@VisionexMedia.com or call +91 9834949813."],
+          body: ["Questions about this policy can be directed to ind.visionmedia@gmail.com or call +91 7304854196."],
         },
       ]}
     />

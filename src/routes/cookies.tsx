@@ -5,11 +5,11 @@ import { LegalLayout } from "@/components/site/LegalLayout";
 export const Route = createFileRoute("/cookies")({
   head: () => ({
     meta: [
-      { title: "Cookie Policy — Visionex Media Pvt Ltd" },
+      { title: "Cookie Policy — Visionex Media Private Limited" },
       {
         name: "description",
         content:
-          "How Visionex Media Pvt Ltd uses cookies and similar technologies on this website.",
+          "How Visionex Media Private Limited uses cookies and similar technologies on this website.",
       },
     ],
   }),

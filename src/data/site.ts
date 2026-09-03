@@ -5,13 +5,13 @@
 export const company = {
   name: "Visionex Media Services",
   short: "Visionex",
-  fullLegal: "Visionex Media Pvt Ltd",
+  fullLegal: "Visionex Media Private Limited",
   description: "Visionex Media Services is an IT and technology solutions company engineering software, cloud and security systems for organisations that depend on them.",
   tagline: "Engineering the Digital Future.",
-  email: "info@VisionexMedia.com",
-  phone: "+91 9834949813",
-  address: "Office 1205 Ambience Court, Plot No. 2, Sector 19D, Vashi, Navi Mumbai, Maharashtra 400705",
-  legalEntity: "Visionex Media Pvt Ltd",
+  email: "ind.visionmedia@gmail.com",
+  phone: "+91 7304854196",
+  address: "Unit No. C227, Bhoomi Mall, Plot No. 09, Sector 15, CBD Belapur, Navi Mumbai, Maharashtra 400614",
+  legalEntity: "Visionex Media Private Limited",
   jurisdiction: "India",
   lastUpdated: "2026-08-17",
 };

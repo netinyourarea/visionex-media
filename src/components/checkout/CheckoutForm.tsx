@@ -122,7 +122,6 @@ export function CheckoutForm() {
     if (!formData.email.trim() || !formData.email.includes("@"))
       newErrors.email = "Valid email address is required";
     if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
-    if (!formData.companyName.trim()) newErrors.companyName = "Company name is required";
     if (!formData.address.trim()) newErrors.address = "Billing address is required";
     if (!formData.city.trim()) newErrors.city = "City is required";
     if (!formData.postalCode.trim()) newErrors.postalCode = "Postal code is required";
@@ -387,7 +386,8 @@ export function CheckoutForm() {
 
               <div>
                 <label className="mb-1.5 block font-mono text-xs font-semibold text-foreground">
-                  Company Name <span className="text-destructive">*</span>
+                  Company Name{" "}
+                  <span className="font-normal text-muted-foreground">(optional)</span>
                 </label>
                 <input
                   type="text"
@@ -429,7 +429,7 @@ export function CheckoutForm() {
                   name="address"
                   value={formData.address}
                   onChange={handleInputChange}
-                  placeholder="Office 1205, Ambience Court, Sector 19D"
+                  placeholder="Unit No. C227, Bhoomi Mall, Sector 15"
                   className={cn(
                     "w-full rounded-md border bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary",
                     errors.address ? "border-destructive" : "border-border"

@@ -17,6 +17,7 @@ import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as TechnologyRouteImport } from './routes/technology'
 import { Route as TermsRouteImport } from './routes/terms'
@@ -65,6 +66,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RefundPolicyRoute = RefundPolicyRouteImport.update({
+  id: '/refund-policy',
+  path: '/refund-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
@@ -110,6 +116,7 @@ export interface FileRoutesByFullPath {
   '/disclaimer': typeof DisclaimerRoute
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
+  '/refund-policy': typeof RefundPolicyRoute
   '/solutions': typeof SolutionsRoute
   '/technology': typeof TechnologyRoute
   '/terms': typeof TermsRoute
@@ -127,6 +134,7 @@ export interface FileRoutesByTo {
   '/disclaimer': typeof DisclaimerRoute
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
+  '/refund-policy': typeof RefundPolicyRoute
   '/solutions': typeof SolutionsRoute
   '/technology': typeof TechnologyRoute
   '/terms': typeof TermsRoute
@@ -145,6 +153,7 @@ export interface FileRoutesById {
   '/disclaimer': typeof DisclaimerRoute
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
+  '/refund-policy': typeof RefundPolicyRoute
   '/solutions': typeof SolutionsRoute
   '/technology': typeof TechnologyRoute
   '/terms': typeof TermsRoute
@@ -164,6 +173,7 @@ export interface FileRouteTypes {
     | '/disclaimer'
     | '/faq'
     | '/privacy'
+    | '/refund-policy'
     | '/solutions'
     | '/technology'
     | '/terms'
@@ -181,6 +191,7 @@ export interface FileRouteTypes {
     | '/disclaimer'
     | '/faq'
     | '/privacy'
+    | '/refund-policy'
     | '/solutions'
     | '/technology'
     | '/terms'
@@ -198,6 +209,7 @@ export interface FileRouteTypes {
     | '/disclaimer'
     | '/faq'
     | '/privacy'
+    | '/refund-policy'
     | '/solutions'
     | '/technology'
     | '/terms'
@@ -216,6 +228,7 @@ export interface RootRouteChildren {
   DisclaimerRoute: typeof DisclaimerRoute
   FaqRoute: typeof FaqRoute
   PrivacyRoute: typeof PrivacyRoute
+  RefundPolicyRoute: typeof RefundPolicyRoute
   SolutionsRoute: typeof SolutionsRoute
   TechnologyRoute: typeof TechnologyRoute
   TermsRoute: typeof TermsRoute
@@ -283,6 +296,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/refund-policy': {
+      id: '/refund-policy'
+      path: '/refund-policy'
+      fullPath: '/refund-policy'
+      preLoaderRoute: typeof RefundPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solutions': {
       id: '/solutions'
       path: '/solutions'
@@ -344,6 +364,7 @@ const rootRouteChildren: RootRouteChildren = {
   DisclaimerRoute: DisclaimerRoute,
   FaqRoute: FaqRoute,
   PrivacyRoute: PrivacyRoute,
+  RefundPolicyRoute: RefundPolicyRoute,
   SolutionsRoute: SolutionsRoute,
   TechnologyRoute: TechnologyRoute,
   TermsRoute: TermsRoute,

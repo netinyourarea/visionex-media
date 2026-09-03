@@ -5,11 +5,11 @@ import { LegalLayout } from "@/components/site/LegalLayout";
 export const Route = createFileRoute("/disclaimer")({
   head: () => ({
     meta: [
-      { title: "Disclaimer — Visionex Media Pvt Ltd" },
+      { title: "Disclaimer — Visionex Media Private Limited" },
       {
         name: "description",
         content:
-          "Disclaimers covering the content, case studies and advice presented on the Visionex Media Pvt Ltd website.",
+          "Disclaimers covering the content, case studies and advice presented on the Visionex Media Private Limited website.",
       },
     ],
   }),
@@ -41,7 +41,7 @@ function DisclaimerPage() {
           id: "no-warranty",
           heading: "No warranty",
           body: [
-            "This website and all content provided are delivered on an 'as is' basis without warranties of any kind, express or implied. Visionex Media Pvt Ltd disclaims all warranties including merchantability, fitness for a particular purpose, and non-infringement.",
+            "This website and all content provided are delivered on an 'as is' basis without warranties of any kind, express or implied. Visionex Media Private Limited disclaims all warranties including merchantability, fitness for a particular purpose, and non-infringement.",
           ],
         },
         {
@@ -54,7 +54,7 @@ function DisclaimerPage() {
         {
           id: "contact",
           heading: "Contact",
-          body: ["Questions about this disclaimer can be directed to info@VisionexMedia.com."],
+          body: ["Questions about this disclaimer can be directed to ind.visionmedia@gmail.com."],
         },
       ]}
     />

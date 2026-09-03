@@ -5,11 +5,11 @@ import { LegalLayout } from "@/components/site/LegalLayout";
 export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
-      { title: "Terms & Conditions — Visionex Media Pvt Ltd" },
+      { title: "Terms & Conditions — Visionex Media Private Limited" },
       {
         name: "description",
         content:
-          "The terms and conditions governing use of the Visionex Media Pvt Ltd website and engagements.",
+          "The terms and conditions governing use of the Visionex Media Private Limited website and engagements.",
       },
     ],
   }),
@@ -21,7 +21,7 @@ function TermsPage() {
     <LegalLayout
       eyebrow="Legal"
       title="Terms & Conditions"
-      intro="These terms govern use of this website and, at a high level, the framework under which engagements with Visionex Media Pvt Ltd are conducted. Individual engagements are additionally governed by a signed statement of work."
+      intro="These terms govern use of this website and, at a high level, the framework under which engagements with Visionex Media Private Limited are conducted. Individual engagements are additionally governed by a signed statement of work."
       sections={[
         {
           id: "acceptance",
@@ -41,14 +41,14 @@ function TermsPage() {
           id: "intellectual-property",
           heading: "Intellectual property",
           body: [
-            "All content on this website, including text, graphics, logos and software, is the property of Visionex Media Pvt Ltd and protected by copyright. Intellectual property ownership for work delivered during an engagement is defined in the associated statement of work.",
+            "All content on this website, including text, graphics, logos and software, is the property of Visionex Media Private Limited and protected by copyright. Intellectual property ownership for work delivered during an engagement is defined in the associated statement of work.",
           ],
         },
         {
           id: "limitation-of-liability",
           heading: "Limitation of liability",
           body: [
-            "To the maximum extent permitted by applicable law, Visionex Media Pvt Ltd shall not be liable for any indirect, incidental, special, consequential or punitive damages arising from your use of this website or services, even if advised of the possibility of such damages.",
+            "To the maximum extent permitted by applicable law, Visionex Media Private Limited shall not be liable for any indirect, incidental, special, consequential or punitive damages arising from your use of this website or services, even if advised of the possibility of such damages.",
           ],
         },
         {

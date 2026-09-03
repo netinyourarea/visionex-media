@@ -22,26 +22,24 @@ export type ServicePackage = {
 };
 
 export const budgetRangesINR = [
-  "Under ₹50,000",
-  "₹50,000 – ₹2,00,000",
-  "₹2,00,000 – ₹5,00,000",
-  "₹5,00,000 – ₹15,00,000",
-  "₹15,00,000 – ₹50,00,000",
-  "₹50,00,000+",
+  "Under ₹15,000",
+  "₹15,000 – ₹50,000",
+  "₹50,000 – ₹1,00,000",
+  "₹1,00,000 – ₹1,70,000",
   "Not yet defined",
 ];
 
 export const defaultServicePrices: Record<string, number> = {
-  "software-development": 350000,
-  "web-applications":     250000,
-  "mobile-apps":          300000,
-  "cloud-solutions":      350000,
-  "ai-automation":        375000,
-  "cybersecurity":        275000,
-  "it-consulting":        150000,
-  "it-infrastructure":    250000,
-  "system-integration":   300000,
-  "product-engineering":  500000,
+  "software-development": 170000,
+  "web-applications":     120000,
+  "mobile-apps":          130000,
+  "cloud-solutions":      150000,
+  "ai-automation":        160000,
+  "cybersecurity":        140000,
+  "it-consulting":        12000,
+  "it-infrastructure":    15000,
+  "system-integration":   100000,
+  "product-engineering":  170000,
 };
 
 export type PromoCode = {
