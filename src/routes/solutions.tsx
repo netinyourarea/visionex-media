@@ -70,10 +70,10 @@ function SolutionsPage() {
                   </Link>
                   <Link
                     to="/checkout"
-                    search={{ service: sol.services.join(",") }}
+                    search={{ service: sol.services[0] }}
                     className="inline-flex items-center gap-1.5 rounded-sm border border-primary/40 bg-primary/10 px-3.5 py-1.5 font-mono text-xs font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-all"
                   >
-                    Book Track Services →
+                    Book Service →
                   </Link>
                 </div>
               </div>

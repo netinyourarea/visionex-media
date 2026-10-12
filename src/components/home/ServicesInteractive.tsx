@@ -14,6 +14,7 @@ import itInfrastructureImg from "@/assets/it-infrastructure.png";
 import systemIntegrationImg from "@/assets/api.png";
 import productEngineeringImg from "@/assets/prodduct-engeenearing.png";
 import { services } from "@/data/site";
+import { formatINR } from "@/data/checkout";
 import { Eyebrow } from "@/components/site/primitives";
 import { Reveal } from "@/components/site/motion-primitives";
 
@@ -74,6 +75,14 @@ export function ServicesInteractive() {
                     </span>
                     <span className="mt-1 block text-sm text-muted-foreground">{s.short}</span>
                   </span>
+                  <div className="hidden sm:flex flex-col items-end shrink-0 text-right">
+                    <span className="font-mono text-sm font-bold text-foreground group-hover:text-primary transition-colors">
+                      {formatINR(s.price)}
+                    </span>
+                    <span className="font-mono text-[10px] text-muted-foreground">
+                      {s.timeline}
+                    </span>
+                  </div>
                   <ArrowUpRight className="size-5 shrink-0 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-primary" />
                 </Link>
               </Reveal>

@@ -73,17 +73,10 @@ export const CheckoutProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [orderNumber, setOrderNumber] = useState<string | null>(null);
   const [completedOrder, setCompletedOrder] = useState<CheckoutContextType["completedOrder"]>(null);
 
+  /** Add item — strictly ensures only 1 service per checkout */
   const addItem = (newItem: CartItem) => {
-    setItems((prev) => {
-      const existing = prev.find((item) => item.id === newItem.id);
-      if (existing) {
-        return prev.map((item) =>
-          item.id === newItem.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      }
-      return [...prev, newItem];
-    });
-    toast.success(`Added "${newItem.title}" to booking`);
+    setItems([{ ...newItem, quantity: 1 }]);
+    toast.success(`Selected "${newItem.title}" for booking`);
   };
 
   const removeItem = (id: string) => {
@@ -94,16 +87,32 @@ export const CheckoutProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setItems([]);
   };
 
-  /** Safely select a single service (prevents duplicates) */
+  /** Safely select a single service (replaces any previous selection so only 1 service is in checkout) */
   const selectServiceBySlug = (serviceSlug: string) => {
     const svc = services.find((s) => s.slug === serviceSlug);
     if (!svc) return;
 
-    setItems((prev) => {
-      if (prev.some((i) => i.id === serviceSlug)) return prev;
-      const price = defaultServicePrices[svc.slug] || 4000;
-      return [
-        ...prev,
+    const price = defaultServicePrices[svc.slug] || svc.price || 18500;
+    setItems([
+      {
+        id: svc.slug,
+        title: svc.title,
+        subtitle: svc.short,
+        price,
+        type: "service",
+        quantity: 1,
+      },
+    ]);
+  };
+
+  /** Safely select the primary service from a list (e.g. for a Solution track) — 1 service per checkout */
+  const selectServices = (serviceSlugs: string[]) => {
+    if (!serviceSlugs || serviceSlugs.length === 0) return;
+    const primarySlug = serviceSlugs[0];
+    const svc = services.find((s) => s.slug === primarySlug);
+    if (svc) {
+      const price = defaultServicePrices[svc.slug] || svc.price || 18500;
+      setItems([
         {
           id: svc.slug,
           title: svc.title,
@@ -112,40 +121,12 @@ export const CheckoutProvider: React.FC<{ children: React.ReactNode }> = ({ chil
           type: "service",
           quantity: 1,
         },
-      ];
-    });
+      ]);
+      toast.success(`Selected primary track service: "${svc.title}"`);
+    }
   };
 
-  /** Safely select multiple services at once (e.g. for a Solution track) */
-  const selectServices = (serviceSlugs: string[]) => {
-    setItems((prev) => {
-      const updated = [...prev];
-      let addedCount = 0;
-      serviceSlugs.forEach((slug) => {
-        if (!updated.some((i) => i.id === slug)) {
-          const svc = services.find((s) => s.slug === slug);
-          if (svc) {
-            const price = defaultServicePrices[svc.slug] || 4000;
-            updated.push({
-              id: svc.slug,
-              title: svc.title,
-              subtitle: svc.short,
-              price,
-              type: "service",
-              quantity: 1,
-            });
-            addedCount++;
-          }
-        }
-      });
-      if (addedCount > 0) {
-        toast.success(`Selected ${addedCount} service(s) for booking`);
-      }
-      return updated;
-    });
-  };
-
-  /** Toggle a service on/off in the cart */
+  /** Single service selection toggle: selecting a new service replaces the previous one */
   const toggleServiceBySlug = (serviceSlug: string) => {
     const svc = services.find((s) => s.slug === serviceSlug);
     if (!svc) return;
@@ -153,13 +134,12 @@ export const CheckoutProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setItems((prev) => {
       const alreadySelected = prev.some((i) => i.id === serviceSlug);
       if (alreadySelected) {
-        toast.info(`Removed "${svc.title}" from booking`);
-        return prev.filter((i) => i.id !== serviceSlug);
+        toast.info(`Deselected "${svc.title}"`);
+        return [];
       } else {
-        toast.success(`Added "${svc.title}" to booking`);
-        const price = defaultServicePrices[svc.slug] || 4000;
+        toast.success(`Selected "${svc.title}" (1 service per booking)`);
+        const price = defaultServicePrices[svc.slug] || svc.price || 18500;
         return [
-          ...prev,
           {
             id: svc.slug,
             title: svc.title,

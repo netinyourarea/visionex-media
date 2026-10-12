@@ -28,8 +28,9 @@ import {
   ChevronUp,
   IndianRupee,
 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { useCheckout } from "@/context/CheckoutContext";
-import { budgetRangesINR, formatINR, PaymentMethod } from "@/data/checkout";
+import { budgetRangesINR, defaultServicePrices, formatINR, PaymentMethod } from "@/data/checkout";
 import { services } from "@/data/site";
 import { cn } from "@/lib/utils";
 
@@ -166,67 +167,108 @@ export function CheckoutForm() {
       {/* ══ LEFT COLUMN ══════════════════════════════════════ */}
       <div className="space-y-10 lg:col-span-7">
 
-        {/* ── 1. Service Selector ──────────────────────────── */}
+        {/* ── 1. Service Selector (Single Service Allowed) ── */}
         <div className="rounded-xl border border-border bg-card/60 p-6 backdrop-blur-md md:p-8">
-          <div className="flex items-center gap-3 border-b border-border/60 pb-4">
-            <div className="flex size-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <ShoppingBag className="size-5" />
+          <div className="flex items-center justify-between border-b border-border/60 pb-4">
+            <div className="flex items-center gap-3">
+              <div className="flex size-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <ShoppingBag className="size-5" />
+              </div>
+              <div>
+                <h3 className="font-display text-lg font-bold text-foreground">
+                  1. Select Service to Book
+                </h3>
+                <p className="text-xs text-muted-foreground">
+                  Choose exactly one service (1 service per checkout). All rates under ₹25,000.
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="font-display text-lg font-bold text-foreground">
-                1. Select Services to Book
-              </h3>
-              <p className="text-xs text-muted-foreground">
-                Choose one or more services. Pricing shown is indicative (excl. GST).
-              </p>
-            </div>
+            <span className="hidden sm:inline-flex rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 font-mono text-[11px] font-semibold text-primary">
+              Single Service
+            </span>
           </div>
 
-          {/* Service cards grid */}
-          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+          {/* Service cards grid — Radio style */}
+          <div className="mt-5 grid gap-3 sm:grid-cols-2" role="radiogroup" aria-label="Select engineering service">
             {services.map((svc) => {
               const selected = isServiceSelected(svc.slug);
+              const price = defaultServicePrices[svc.slug] || svc.price;
               return (
-                <button
+                <div
                   key={svc.slug}
-                  type="button"
                   onClick={() => toggleServiceBySlug(svc.slug)}
+                  role="radio"
+                  aria-checked={selected}
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      toggleServiceBySlug(svc.slug);
+                    }
+                  }}
                   className={cn(
-                    "group relative flex items-start gap-3 rounded-lg border p-4 text-left transition-all duration-200",
+                    "group relative flex cursor-pointer flex-col justify-between rounded-lg border p-4 text-left transition-all duration-200",
                     selected
-                      ? "border-primary bg-primary/10 shadow-sm shadow-primary/10"
+                      ? "border-primary bg-primary/10 shadow-md shadow-primary/10 ring-1 ring-primary"
                       : "border-border/70 bg-background/50 hover:border-primary/40 hover:bg-surface"
                   )}
                 >
-                  <div
-                    className={cn(
-                      "mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-lg transition-colors",
-                      selected
-                        ? "bg-primary/20 text-primary"
-                        : "bg-surface text-muted-foreground group-hover:text-primary"
-                    )}
-                  >
-                    {serviceIcons[svc.slug]}
-                  </div>
-
-                  <div className="min-w-0 flex-1">
+                  <div className="flex items-start gap-3">
+                    {/* Radio circle indicator */}
                     <div
                       className={cn(
-                        "font-display text-sm font-semibold leading-tight transition-colors",
-                        selected ? "text-primary" : "text-foreground group-hover:text-primary"
+                        "mt-0.5 flex size-4.5 shrink-0 items-center justify-center rounded-full border-2 transition-all",
+                        selected
+                          ? "border-primary bg-primary text-primary-foreground"
+                          : "border-muted-foreground/40 group-hover:border-primary/60"
                       )}
                     >
-                      {svc.title}
+                      {selected && (
+                        <div className="size-1.5 rounded-full bg-background" />
+                      )}
                     </div>
-                    <div className="mt-1 font-mono text-[10px] text-muted-foreground">
-                      From {formatINR(0)}&nbsp;—&nbsp;contact for quote
+
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <span
+                          className={cn(
+                            "font-display text-sm font-semibold leading-tight transition-colors",
+                            selected ? "text-primary" : "text-foreground group-hover:text-primary"
+                          )}
+                        >
+                          {svc.title}
+                        </span>
+                        {svc.badge && (
+                          <span className="rounded bg-primary/15 px-1.5 py-0.5 font-mono text-[9px] font-semibold text-primary">
+                            {svc.badge}
+                          </span>
+                        )}
+                      </div>
+                      <p className="mt-1 line-clamp-1 text-xs text-muted-foreground">
+                        {svc.short}
+                      </p>
                     </div>
                   </div>
 
-                  {selected && (
-                    <CheckCircle2 className="absolute top-3 right-3 size-4 text-primary" />
-                  )}
-                </button>
+                  {/* Price & Detail Link strip */}
+                  <div className="mt-3 flex items-center justify-between border-t border-border/40 pt-2.5">
+                    <div className="font-mono text-xs font-bold text-foreground">
+                      {formatINR(price)}{" "}
+                      <span className="font-normal text-[10px] text-muted-foreground">
+                        ({svc.timeline || "Sprint"})
+                      </span>
+                    </div>
+
+                    <Link
+                      to="/services/$slug"
+                      params={{ slug: svc.slug }}
+                      onClick={(e) => e.stopPropagation()}
+                      className="font-mono text-[11px] font-semibold text-primary/80 hover:text-primary hover:underline"
+                    >
+                      View details ↗
+                    </Link>
+                  </div>
+                </div>
               );
             })}
           </div>
@@ -657,8 +699,7 @@ export function CheckoutForm() {
           <div className="flex items-center justify-between border-b border-border/60 pb-4">
             <h3 className="font-display text-lg font-bold text-foreground">Booking Summary</h3>
             <span className="rounded bg-primary/10 px-2.5 py-1 font-mono text-xs font-medium text-primary">
-              {items.length + (hasCustomRequest ? 1 : 0)}{" "}
-              {items.length + (hasCustomRequest ? 1 : 0) === 1 ? "Item" : "Items"}
+              {items.length + (hasCustomRequest ? 1 : 0) === 1 ? "1 Service Selected" : "No Service"}
             </span>
           </div>
 
@@ -666,9 +707,9 @@ export function CheckoutForm() {
           <div className="mt-6 max-h-72 space-y-3 overflow-y-auto pr-1">
             {items.length === 0 && !hasCustomRequest ? (
               <div className="py-8 text-center text-sm text-muted-foreground">
-                No services selected yet.
+                No service selected yet.
                 <br />
-                <span className="font-mono text-xs">Pick from the list on the left.</span>
+                <span className="font-mono text-xs">Select 1 service from the left to book.</span>
               </div>
             ) : (
               <>

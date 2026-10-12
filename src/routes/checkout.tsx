@@ -33,15 +33,13 @@ function CheckoutPage() {
   const { service: serviceSlug } = useSearch({ from: "/checkout" });
   const { selectServiceBySlug, selectServices } = useCheckout();
 
-  // Pre-select service or solution track services safely without duplicate toggling
+  // Pre-select service safely (one service per checkout)
   useEffect(() => {
     if (serviceSlug) {
-      if (serviceSlug.includes(",")) {
-        const slugs = serviceSlug.split(",").map((s) => s.trim());
-        selectServices(slugs);
-      } else {
-        selectServiceBySlug(serviceSlug);
-      }
+      const primarySlug = serviceSlug.includes(",")
+        ? serviceSlug.split(",")[0].trim()
+        : serviceSlug.trim();
+      selectServiceBySlug(primarySlug);
     }
   }, [serviceSlug]);
 
@@ -49,8 +47,8 @@ function CheckoutPage() {
     <>
       <PageHeader
         eyebrow="Secure Booking"
-        title="Book your engineering services."
-        lead="Select one or more services, enter your billing details, and confirm your booking with instant corporate invoicing."
+        title="Book your engineering service."
+        lead="Select your engineering service, enter your billing details, and confirm your booking with instant corporate invoicing. (One service per checkout booking)."
       />
 
       <div className="container-x pb-28">
