@@ -9,7 +9,7 @@ export const Route = createFileRoute("/shipping-policy")({
       {
         name: "description",
         content:
-          "How Visionex Media Private Limited delivers digital services and project deliverables to domestic and international clients.",
+          "How Visionex Media Private Limited delivers digital services and project deliverables to clients.",
       },
     ],
   }),
@@ -41,7 +41,7 @@ function ShippingPolicyPage() {
           id: "delivery-method",
           heading: "Method of delivery",
           body: [
-            "Deliverables are shared by email, secure file transfer, repository hand-over or deployment to your environment, as agreed for the engagement. Delivery is the same for domestic (India) and international clients.",
+            "Deliverables are shared by email, secure file transfer, repository hand-over or deployment to your environment, as agreed for the engagement.",
           ],
         },
         {

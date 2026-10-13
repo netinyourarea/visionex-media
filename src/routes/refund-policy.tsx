@@ -9,7 +9,7 @@ export const Route = createFileRoute("/refund-policy")({
       {
         name: "description",
         content:
-          "Refund and cancellation policy for domestic and international engagements with Visionex Media Private Limited.",
+          "Refund and cancellation policy for engagements with Visionex Media Private Limited.",
       },
     ],
   }),
@@ -21,13 +21,13 @@ function RefundPolicyPage() {
     <LegalLayout
       eyebrow="Legal"
       title="Refund & Cancellation Policy"
-      intro="This policy explains how cancellations and refunds are handled for engagements with Visionex Media Private Limited, for both domestic (India) and international clients."
+      intro="This policy explains how cancellations and refunds are handled for engagements with Visionex Media Private Limited."
       sections={[
         {
           id: "scope",
           heading: "Scope",
           body: [
-            "This policy applies to all services booked through this website's checkout, including one-time project packages and custom-quoted engagements, for clients located in India (domestic) and outside India (international).",
+            "This policy applies to all services booked through this website's checkout, including one-time project packages and custom-quoted engagements,.",
           ],
         },
         {
@@ -51,13 +51,6 @@ function RefundPolicyPage() {
           heading: "Domestic refunds (India)",
           body: [
             "Approved refunds for domestic clients are processed to the original payment method (card, UPI or net banking) and typically reflect within 7–10 business days, depending on the issuing bank or payment provider.",
-          ],
-        },
-        {
-          id: "international-refunds",
-          heading: "International refunds",
-          body: [
-            "Approved refunds for international clients are processed via the original payment method or wire transfer. International refunds may take 10–21 business days depending on the receiving bank, and any bank transfer fees, intermediary charges or currency-conversion losses are borne by the client.",
           ],
         },
         {
