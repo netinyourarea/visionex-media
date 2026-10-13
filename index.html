@@ -15,6 +15,15 @@
       name="description"
       content="Visionex designs, builds and operates the software, cloud and security systems organisations run on."
     />
+    <script>
+      // Restore the original path after the GitHub Pages 404.html fallback redirect
+      (function () {
+        var r = new URLSearchParams(window.location.search).get("redirect");
+        if (r && r.charAt(0) === "/" && r.charAt(1) !== "/") {
+          window.history.replaceState(null, "", r + window.location.hash);
+        }
+      })();
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C2ZQ2MKQBN"></script>
     <script>
       window.dataLayer = window.dataLayer || [];

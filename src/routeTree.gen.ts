@@ -18,6 +18,7 @@ import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
+import { Route as ShippingPolicyRouteImport } from './routes/shipping-policy'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as TechnologyRouteImport } from './routes/technology'
 import { Route as TermsRouteImport } from './routes/terms'
@@ -71,6 +72,11 @@ const RefundPolicyRoute = RefundPolicyRouteImport.update({
   path: '/refund-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShippingPolicyRoute = ShippingPolicyRouteImport.update({
+  id: '/shipping-policy',
+  path: '/shipping-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolutionsRoute = SolutionsRouteImport.update({
   id: '/solutions',
   path: '/solutions',
@@ -117,6 +123,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
   '/refund-policy': typeof RefundPolicyRoute
+  '/shipping-policy': typeof ShippingPolicyRoute
   '/solutions': typeof SolutionsRoute
   '/technology': typeof TechnologyRoute
   '/terms': typeof TermsRoute
@@ -135,6 +142,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
   '/refund-policy': typeof RefundPolicyRoute
+  '/shipping-policy': typeof ShippingPolicyRoute
   '/solutions': typeof SolutionsRoute
   '/technology': typeof TechnologyRoute
   '/terms': typeof TermsRoute
@@ -154,6 +162,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
   '/refund-policy': typeof RefundPolicyRoute
+  '/shipping-policy': typeof ShippingPolicyRoute
   '/solutions': typeof SolutionsRoute
   '/technology': typeof TechnologyRoute
   '/terms': typeof TermsRoute
@@ -174,6 +183,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/privacy'
     | '/refund-policy'
+    | '/shipping-policy'
     | '/solutions'
     | '/technology'
     | '/terms'
@@ -192,6 +202,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/privacy'
     | '/refund-policy'
+    | '/shipping-policy'
     | '/solutions'
     | '/technology'
     | '/terms'
@@ -210,6 +221,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/privacy'
     | '/refund-policy'
+    | '/shipping-policy'
     | '/solutions'
     | '/technology'
     | '/terms'
@@ -229,6 +241,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   PrivacyRoute: typeof PrivacyRoute
   RefundPolicyRoute: typeof RefundPolicyRoute
+  ShippingPolicyRoute: typeof ShippingPolicyRoute
   SolutionsRoute: typeof SolutionsRoute
   TechnologyRoute: typeof TechnologyRoute
   TermsRoute: typeof TermsRoute
@@ -303,6 +316,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RefundPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/shipping-policy': {
+      id: '/shipping-policy'
+      path: '/shipping-policy'
+      fullPath: '/shipping-policy'
+      preLoaderRoute: typeof ShippingPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solutions': {
       id: '/solutions'
       path: '/solutions'
@@ -365,6 +385,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   PrivacyRoute: PrivacyRoute,
   RefundPolicyRoute: RefundPolicyRoute,
+  ShippingPolicyRoute: ShippingPolicyRoute,
   SolutionsRoute: SolutionsRoute,
   TechnologyRoute: TechnologyRoute,
   TermsRoute: TermsRoute,

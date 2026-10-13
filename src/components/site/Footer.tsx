@@ -19,6 +19,7 @@ const legal = [
   { label: "Privacy Policy", to: "/privacy" as const },
   { label: "Terms & Conditions", to: "/terms" as const },
   { label: "Refund & Cancellation Policy", to: "/refund-policy" as const },
+  { label: "Shipping & Delivery Policy", to: "/shipping-policy" as const },
   { label: "Cookie Policy", to: "/cookies" as const },
   { label: "Disclaimer", to: "/disclaimer" as const },
 ];
